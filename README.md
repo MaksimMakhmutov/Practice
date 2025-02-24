@@ -8,17 +8,14 @@
 
 - пользователь: БД (список пользователей), BFF (сессия пользователя), стор (отображение в браузере)
 - роль пользователя: БД (список ролей), BFF (сессия пользователя с ролью), стор (использование на клиенте)
-- категория товара: БД (список категорий), BFF (список категорий, которые передаются пользователю), стор (отображение в браузере)
-- товар: БД (список товаров), стор (отображение в праузере)
-- корзина: БД (товары, выбранные пользователем), стор (отображение в браузере)
-- админ-панель: БД (информация о товарах)
+- статья: БД (список статей), стор (отображение в браузере)
+- комментарии: БД (список комментариев), стор (отображение в браузере)
 
   Таблицы БД:
-- пользователь - users: id / login / password / role_id
-- роль - roles: id / name
-- товар - product: id / title / image_url / price / quantity / category
-- категория - category: id / title
-- админ-панель - admin-panel: product_name / product_id / product_url / product_quantity
+- пользователь - users: id / login / password / registed_at / role_id
+- роли - roles: id / name
+- статьи - posts: id / title / image_url / content / published_at
+- комментарии -  comments: id / author_id / post_id / content
 
 Схема состояния на BFFЖ
 
@@ -27,6 +24,6 @@
 Схема для редакс стора (на клиенте):
 
 - user: id / login / role
-- kategory: id / title 
-- products: массив product: id / title / imageUrl / quantity / category
-- product: id / title / imageUrl / price / quantity / category
+- posts: массив post: id / title / imageUrl / puplishedAt / commentsCount 
+- post: id / title / imageUrl / content / publishedAt / comments: массив comment: id / outhor / content / publishedAt
+- users: массив user: id / login / registeredAt / role

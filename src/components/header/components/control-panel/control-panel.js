@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Icon } from '../../../../components';
+import { Icon } from '../../../icon/icon';
 import styled from 'styled-components';
 
 export const ControlPanelContainer = ({ className }) => {

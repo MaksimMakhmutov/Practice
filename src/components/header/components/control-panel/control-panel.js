@@ -1,18 +1,42 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Icon } from '../../../icon/icon';
+import { useSelector, useDispatch } from 'react-redux';
+import { Icon, Button } from '../../../index';
 import styled from 'styled-components';
+import { ROLE } from '../../../../constants';
+import {
+	selectUserRole,
+	selectUserLogin,
+	selectUserSession,
+} from '../../../../selectors';
+import { logout } from '../../../../actions';
 
 export const ControlPanelContainer = ({ className }) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const roleId = useSelector(selectUserRole);
+	const login = useSelector(selectUserLogin);
+	const session = useSelector(selectUserSession);
+
 	return (
 		<div className={className}>
 			<RightAligned>
-				<StyledLink to="/login">Войти</StyledLink>
+				{roleId === ROLE.GUEST ? (
+					<Button>
+						<Link to="/login">Войти</Link>
+					</Button>
+				) : (
+					<>
+						<UserName>{login}</UserName>
+						<StyledLogoutIcon onClick={() => dispatch(logout(session))}>
+							<Icon id="fa-sign-out" margin="0 0 0 10px" />
+						</StyledLogoutIcon>
+					</>
+				)}
 			</RightAligned>
 			<RightAligned>
-				<StyledButton onClick={() => navigate(-1)}>
+				<StyledBackIcon onClick={() => navigate(-1)}>
 					<Icon id="fa-backward" margin="10px 0 0 0" />
-				</StyledButton>
+				</StyledBackIcon>
 				<Link to="/post">
 					<Icon id="fa-file-text-o" margin="10px 0 0 16px" />
 				</Link>
@@ -26,25 +50,25 @@ export const ControlPanelContainer = ({ className }) => {
 
 export const ControlPanel = styled(ControlPanelContainer)``;
 
-const StyledButton = styled.div`
+const StyledBackIcon = styled.div`
 	&:hover {
 		cursor: pointer;
 	}
 `;
 
 const RightAligned = styled.div`
+	align-item: center;
 	display: flex;
 	justify-content: flex-end;
 `;
-const StyledLink = styled(Link)`
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
+const UserName = styled.div`
 	font-size: 18px;
-	width: 100px;
-	height: 32px;
-	color: #000;
-	text-decoration: none;
-	border: 1px solid #000;
-	background-color: #eee;
+	font-weigth: bold;
+`;
+
+const StyledLogoutIcon = styled.div`
+	&:hover {
+		cursor: pointer;
+	}
 `;

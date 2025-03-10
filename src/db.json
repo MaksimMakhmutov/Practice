@@ -2,8 +2,8 @@
   "users" : [
     {
        "id": "001",
-       "login": "Maxim",
-       "password": "qwerty12345",
+       "login": "maxim",
+       "password": "qwerty123",
        "registed_at": "2030-09-25",
        "role_id": 0
     }

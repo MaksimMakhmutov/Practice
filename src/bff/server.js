@@ -1,10 +1,15 @@
 import { getUser } from './get-user';
 import { addUser } from './add-users';
-import { createSession } from 'react-router';
+import { sessions } from './sessions';
 
 export const server = {
+	async logout(session) {
+		sessions.remove(session);
+	},
 	async authorize(authLogin, authPassword) {
-		const user = getUser(authLogin);
+		console.log(authLogin);
+		const user = await getUser(authLogin);
+		console.log('user', user);
 
 		if (!user) {
 			return {
@@ -14,17 +19,23 @@ export const server = {
 		}
 		if (authPassword !== user.password) {
 			return {
-				error: 'Неверный пользователь',
+				error: 'Неверный пароль',
 				res: null,
 			};
 		}
+
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: user.id,
+				login: user.login,
+				roleId: user.role_id,
+				session: sessions.create(user),
+			},
 		};
 	},
 	async register(regLogin, regPassword) {
-		const user = getUser(regLogin);
+		const user = await getUser(regLogin);
 
 		if (user) {
 			return {
@@ -46,7 +57,12 @@ export const server = {
 		};
 		return {
 			error: null,
-			res: createSession(user.role_id),
+			res: {
+				id: user.id,
+				login: user.login,
+				roleId: user.role_id,
+				session: sessions.create(user),
+			},
 		};
 	},
 };

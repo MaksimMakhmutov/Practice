@@ -1,15 +1,15 @@
-import { genarateDate } from "./generate-date";
+import { genarateDate } from './generate-date';
 
-export const addUser = (regLogin, regPassword) =>
-	fetch('https://localhost.3005/users/', {
+export const addUser = (login, password) =>
+	fetch('http://localhost:3005/users', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json;charset=uft-8',
 		},
 		body: JSON.stringify({
-			login: regLogin,
-			password: regPassword,
+			login,
+			password,
 			registed_at: genarateDate(),
 			role_id: 2,
 		}),
-	});
+	}).then((createdUser) => createdUser.json());

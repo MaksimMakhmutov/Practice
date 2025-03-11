@@ -27,9 +27,12 @@ export const ControlPanelContainer = ({ className }) => {
 				) : (
 					<>
 						<UserName>{login}</UserName>
-						<StyledLogoutIcon onClick={() => dispatch(logout(session))}>
-							<Icon id="fa-sign-out" margin="0 0 0 10px" />
-						</StyledLogoutIcon>
+
+						<Icon
+							id="fa-sign-out"
+							margin="0 0 0 10px"
+							onClick={() => dispatch(logout(session))}
+						/>
 					</>
 				)}
 			</RightAligned>
@@ -65,10 +68,4 @@ const RightAligned = styled.div`
 const UserName = styled.div`
 	font-size: 18px;
 	font-weigth: bold;
-`;
-
-const StyledLogoutIcon = styled.div`
-	&:hover {
-		cursor: pointer;
-	}
 `;

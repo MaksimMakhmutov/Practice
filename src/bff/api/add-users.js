@@ -1,4 +1,4 @@
-import { genarateDate } from './generate-date';
+import { genarateDate } from '../utils';
 
 export const addUser = (login, password) =>
 	fetch('http://localhost:3005/users', {

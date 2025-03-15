@@ -20,6 +20,13 @@
       "password": "qwerty123",
       "registed_at": "2049-04-0807:21",
       "role_id": 2
+    },
+    {
+      "id": "1b02",
+      "login": "maxim2",
+      "password": "qwerty123",
+      "registed_at": "2043-08-21 00:04",
+      "role_id": 2
     }
   ],
   "roles": [

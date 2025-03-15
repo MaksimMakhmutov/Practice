@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Icon, Button } from '../../../index';
 import styled from 'styled-components';
-import { ROLE } from '../../../../constants';
+import { ROLE } from '../../../../bff/constants';
 import {
 	selectUserRole,
 	selectUserLogin,
@@ -27,12 +27,9 @@ export const ControlPanelContainer = ({ className }) => {
 				) : (
 					<>
 						<UserName>{login}</UserName>
-
-						<Icon
-							id="fa-sign-out"
-							margin="0 0 0 10px"
-							onClick={() => dispatch(logout(session))}
-						/>
+						<div onClick={() => dispatch(logout(session))}>
+							<Icon id="fa-sign-out" margin="0 0 0 10px" />
+						</div>
 					</>
 				)}
 			</RightAligned>

@@ -1,31 +1,60 @@
 import styled from 'styled-components';
-import { H2 } from '../../components';
-// import { useDispatch } from 'react-redux';
+import { Content, H2 } from '../../components';
 import { TableRow, UserRow } from './components/index';
-// import { ROLE } from '../../constants';
+import { useServerRequest } from '../../hooks';
+import { useEffect, useState } from 'react';
+import { ROLE } from '../../bff/constants';
 
 const UsersContainer = ({ className }) => {
-	// const dispatch = useDispatch();
-	const users = [];
+	const [users, setUsers] = useState([]);
+	const [roles, setRoles] = useState([]);
+	const [errorMessage, setErrorMessage] = useState(null);
+
+	const requestServer = useServerRequest();
+
+	useEffect(() => {
+		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
+			([usersRes, rolesRes]) => {
+				if (usersRes.error || rolesRes.error) {
+					setErrorMessage(usersRes.error || rolesRes.error);
+					return;
+				}
+				console.log('usersRes', usersRes, 'rolesRes', rolesRes);
+				setUsers(usersRes.res);
+				setRoles(rolesRes.res);
+			},
+		);
+		requestServer('fetchRoles').then(({ rolesError, res }) => {
+			if (rolesError) {
+				return;
+			}
+			setRoles(res);
+		});
+
+		requestServer('fetchUsers');
+	}, [requestServer]);
 
 	return (
 		<div className={className}>
-			<H2>Пользователи</H2>
-			<div>
-				<TableRow>
-					<div className="login-column">Логин</div>
-					<div className="registered-at-column">Дата регистрации</div>
-					<div className="role-column">Роль</div>
-				</TableRow>
-				{users.map(({ id, login, registeredAt, roleId }) => (
-					<UserRow
-						key={id}
-						login={login}
-						registeredAt={registeredAt}
-						roleId={roleId}
-					/>
-				))}
-			</div>
+			<Content error={errorMessage}>
+				<H2>Пользователи</H2>
+				<div>
+					<TableRow>
+						<div className="login-column">Логин</div>
+						<div className="registered-at-column">Дата регистрации</div>
+						<div className="role-column">Роль</div>
+					</TableRow>
+					{users.map(({ id, login, registeredAt, roleId }) => (
+						<UserRow
+							key={id}
+							login={login}
+							registeredAt={registeredAt}
+							roleId={roleId}
+							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
+						/>
+					))}
+				</div>
+			</Content>
 		</div>
 	);
 };
@@ -37,4 +66,5 @@ export const Users = styled(UsersContainer)`
 	margin: 0 auto;
 	align-items: center;
 	width: 570px;
+	font-size: 18px;
 `;

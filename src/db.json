@@ -8,42 +8,50 @@
       "role_id": 0
     },
     {
-      "id": "8cbc",
+      "id": "a9d6",
+      "login": "MaksimMakhmutov",
+      "password": "qwerty123",
+      "registed_at": "2064-05-06 08:20",
+      "role_id": 2
+    },
+    {
+      "id": "ba30",
       "login": "Maxim",
-      "password": "qwerty12345",
-      "registed_at": "2049-04-2803:00",
+      "password": "qwerty123",
+      "registed_at": "2058-09-01 14:51",
       "role_id": 2
     },
     {
-      "id": "522d",
-      "login": "makhmutov",
+      "id": "024c",
+      "login": "maxim1",
       "password": "qwerty123",
-      "registed_at": "2049-04-0807:21",
-      "role_id": 2
+      "registed_at": "2053-05-19 16:14",
+      "role_id": 1
     },
     {
-      "id": "1b02",
-      "login": "maxim2",
+      "id": "024c",
+      "login": "maxim1",
       "password": "qwerty123",
-      "registed_at": "2043-08-21 00:04",
-      "role_id": 2
+      "registed_at": "2053-05-19 16:14",
+      "role_id": 1
     }
+    
   ],
   "roles": [
     {
-      "id": "0",
+      "id": 0,
       "name": "Админимтратор"
     },
     {
-      "id": "1",
+      "id": 1,
       "name": "Модератор"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Читатель"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Гость"
     }
   ],

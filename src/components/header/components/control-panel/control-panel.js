@@ -27,21 +27,27 @@ export const ControlPanelContainer = ({ className }) => {
 				) : (
 					<>
 						<UserName>{login}</UserName>
-						<div onClick={() => dispatch(logout(session))}>
-							<Icon id="fa-sign-out" margin="0 0 0 10px" />
-						</div>
+
+						<Icon
+							iconId="fa-sign-out"
+							margin="0 0 0 10px"
+							onClick={() => dispatch(logout(session))}
+						/>
 					</>
 				)}
 			</RightAligned>
 			<RightAligned>
-				<StyledBackIcon onClick={() => navigate(-1)}>
-					<Icon id="fa-backward" margin="10px 0 0 0" />
-				</StyledBackIcon>
+				<Icon
+					iconId="fa-backward"
+					margin="10px 0 0 0"
+					onClick={() => navigate(-1)}
+				/>
+
 				<Link to="/post">
-					<Icon id="fa-file-text-o" margin="10px 0 0 16px" />
+					<Icon iconId="fa-file-text-o" margin="10px 0 0 16px" />
 				</Link>
 				<Link to="/users">
-					<Icon id="fa-users" margin="10px 0 0 16px" />
+					<Icon iconId="fa-users" margin="10px 0 0 16px" />
 				</Link>
 			</RightAligned>
 		</div>
@@ -49,12 +55,6 @@ export const ControlPanelContainer = ({ className }) => {
 };
 
 export const ControlPanel = styled(ControlPanelContainer)``;
-
-const StyledBackIcon = styled.div`
-	&:hover {
-		cursor: pointer;
-	}
-`;
 
 const RightAligned = styled.div`
 	align-item: center;

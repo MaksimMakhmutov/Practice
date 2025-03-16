@@ -1,14 +1,16 @@
-import styled from 'styled-components';
 import { Content, H2 } from '../../components';
 import { TableRow, UserRow } from './components/index';
 import { useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { ROLE } from '../../bff/constants';
+import styled from 'styled-components';
 
 const UsersContainer = ({ className }) => {
 	const [users, setUsers] = useState([]);
-	const [roles, setRoles] = useState([]);
+	const [roles, setRoles] = useState([]); // Инициализируем пустым массивом
 	const [errorMessage, setErrorMessage] = useState(null);
+	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
+	console.log('shouldUpdateUserList', shouldUpdateUserList);
 
 	const requestServer = useServerRequest();
 
@@ -19,20 +21,17 @@ const UsersContainer = ({ className }) => {
 					setErrorMessage(usersRes.error || rolesRes.error);
 					return;
 				}
-				console.log('usersRes', usersRes, 'rolesRes', rolesRes);
 				setUsers(usersRes.res);
 				setRoles(rolesRes.res);
 			},
 		);
-		requestServer('fetchRoles').then(({ rolesError, res }) => {
-			if (rolesError) {
-				return;
-			}
-			setRoles(res);
-		});
+	}, [shouldUpdateUserList, requestServer]);
 
-		requestServer('fetchUsers');
-	}, [requestServer]);
+	const onUserRemove = (userId) => {
+		requestServer('removeUser', userId).then(() => {
+			setShouldUpdateUserList(!shouldUpdateUserList);
+		});
+	};
 
 	return (
 		<div className={className}>
@@ -47,10 +46,18 @@ const UsersContainer = ({ className }) => {
 					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
 							key={id}
+							id={id}
 							login={login}
 							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles.filter(({ roleId }) => roleId !== ROLE.GUEST)}
+							roles={
+								roles
+									? roles.filter(
+											({ id: roleId }) => roleId !== ROLE.GUEST,
+										)
+									: []
+							}
+							onUserRemove={() => onUserRemove(id)}
 						/>
 					))}
 				</div>

@@ -2,9 +2,9 @@ import { addUser, getUser } from '../api';
 import { sessions } from '../sessions';
 
 export const register = async (regLogin, regPassword) => {
-	const existeduser = await getUser(regLogin);
+	const existedUser = await getUser(regLogin);
 
-	if (existeduser) {
+	if (existedUser) {
 		return {
 			error: 'Такой логин уже занят',
 			res: null,

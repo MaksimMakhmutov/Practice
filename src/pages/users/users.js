@@ -10,7 +10,6 @@ const UsersContainer = ({ className }) => {
 	const [roles, setRoles] = useState([]); // Инициализируем пустым массивом
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
-	console.log('shouldUpdateUserList', shouldUpdateUserList);
 
 	const requestServer = useServerRequest();
 

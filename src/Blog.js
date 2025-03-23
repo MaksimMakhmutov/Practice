@@ -5,6 +5,7 @@ import { Authorization, Registration, Users, Post } from './pages';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
+import { Modal } from './components/modal/modal';
 
 const Content = styled.div`
 	padding: 120px 0;
@@ -33,7 +34,7 @@ export const Blog = () => {
 			return;
 		}
 
-		const currentUserData = JSON.parse(currentUserDataJSON)
+		const currentUserData = JSON.parse(currentUserDataJSON);
 		dispatch(
 			setUser({
 				...currentUserData,
@@ -63,6 +64,7 @@ export const Blog = () => {
 				</Routes>
 			</Content>
 			<Footer />
+			<Modal />
 		</AppColumn>
 	);
 };

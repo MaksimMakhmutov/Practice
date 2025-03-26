@@ -1,67 +1,42 @@
 import styled from 'styled-components';
 import { H2, Icon } from '../../../../components';
+import { SpecialPanel } from '../special-panel/special-panel';
+import { useNavigate } from 'react-router-dom';
 
 const PostContantContainer = ({
 	className,
 	post: { id, title, imageUrl, content, publishedAt },
 }) => {
+	const navigate = useNavigate();
 	return (
 		<div className={className}>
 			<img src={imageUrl} alt={title} />
 			<H2>{title}</H2>
-			<div className="spacial-panel">
-				<div className="published-at">
-					{' '}
-					<Icon
-						iconId="fa-calendar-o"
-						margin="0 7px 0 0"
-						size="18px"
-						onClick={() => {}}
-					/>
-					{publishedAt}
-				</div>
-				<div className="buttons">
+			<SpecialPanel
+				publishedAt={publishedAt}
+				margin="-20px 0 20px"
+				editButton={
 					<Icon
 						size="21px"
 						iconId="fa-pencil-square-o"
 						margin="0 10px 0 0"
-						onClick={() => {}}
+						onClick={() => navigate(`/post/${id}/edit`)}
 					/>
-					<Icon iconId="fa-trash-o" size="21px" onClick={() => {}} />
-				</div>
-			</div>
+				}
+			/>
 			<div className="post-text">{content}</div>
 		</div>
 	);
 };
 
 export const PostContent = styled(PostContantContainer)`
-	& ing {
+	& img {
 		float: left;
 		margin: 0 20px 10px 0;
 	}
 
-	& .special-panel {
-		margin: -20px 0 20px;
-		justify-content: space-between;
-		display: flex;
-	}
-
-	& .published-at {
-		display: flex;
-		font-size: 18px;
-	}
-
-	& i {
-		position: relative;
-		top: -1px;
-	}
-
-	& .buttons {
-		display: flex;
-	}
-
 	& .post-text {
 		font-size: 18px;
+		white-space: pre-line;
 	}
 `;

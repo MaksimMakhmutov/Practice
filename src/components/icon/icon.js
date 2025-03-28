@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const IconContainer = ({ className, iconId, ...props }) => (
-	<div className={className} {...props}>
+const IconContainer = ({ className, iconId, inactive, onClick, ...props }) => (
+	<div className={className} onClick={onClick} {...props}>
 		<i className={`fa ${iconId}`} aria-hidden="true"></i>
 	</div>
 );
@@ -12,6 +12,6 @@ export const Icon = styled(IconContainer)`
 	color: ${({ disabled }) => (disabled ? '#ccc' : '#000')};
 
 	&:hover {
-		cursor: pointer;
+		cursor: ${({ inactive }) => (inactive ? 'default' : 'pointer')};
 	}
 `;

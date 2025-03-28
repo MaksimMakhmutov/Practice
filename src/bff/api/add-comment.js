@@ -1,6 +1,7 @@
 import { genarateDate } from '../utils';
 
-export const addComment = (userId, postId, content) =>
+export const addComment = (userId, postId, content) => {
+	console.log('1', 'userId', 'postId', 'content', userId, postId, content);
 	fetch('http://localhost:3005/comments', {
 		method: 'POST',
 		headers: {
@@ -13,3 +14,4 @@ export const addComment = (userId, postId, content) =>
 			content,
 		}),
 	});
+};

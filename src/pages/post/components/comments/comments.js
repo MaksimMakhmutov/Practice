@@ -13,7 +13,8 @@ const CommetsContainer = ({ className, comments, postId }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 
-	const onNewCommentAdd = (postId, userId, content) => {
+	const onNewCommentAdd = (userId, postId, content) => {
+		console.log('5', 'userId', 'postId', 'content', userId, postId, content);
 		dispatch(addCommentAsync(requestServer, postId, userId, content));
 		setNewComment('');
 	};

@@ -7,14 +7,15 @@ export const addPostComment = async (hash, userId, postId, content) => {
 	const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.READER];
 
 	const access = await sessions.access(hash, accessRoles);
+
 	if (!access) {
 		return {
 			error: 'Доступ запрещён, для написания комментария нужно авторизоваться',
 			res: null,
 		};
 	}
-
-	await addComment(userId, postId, content);
+	console.log('2', 'userId', 'postId', 'content', userId, postId, content);
+	addComment(userId, postId, content);
 
 	const post = await getPost(postId);
 

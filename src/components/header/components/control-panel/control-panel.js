@@ -19,7 +19,7 @@ export const ControlPanelContainer = ({ className }) => {
 
 	const onLogout = () => {
 		dispatch(logout(session));
-		sessionStorage.removeItem('userData')
+		sessionStorage.removeItem('userData');
 	};
 
 	return (

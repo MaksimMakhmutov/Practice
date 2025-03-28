@@ -6,6 +6,7 @@ export const removeUser = async (hash, userId, newUserRoleId) => {
     const accessRoles = [ROLE.ADMIN];
 
     const access = await sessions.access(hash, accessRoles);
+    
 	if (!access) {
         return {
             error: 'Доступ запрещён',

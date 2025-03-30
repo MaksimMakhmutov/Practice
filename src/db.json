@@ -91,7 +91,29 @@
       "content": "333332"
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "id": "8f28",
+      "author_id": "001",
+      "post_id": "001",
+      "published_at": "2035-02-12 04:44",
+      "content": "213123"
+    },
+    {
+      "id": "c923",
+      "author_id": "001",
+      "post_id": "001",
+      "published_at": "2037-05-24 16:51",
+      "content": "33"
+    },
+    {
+      "id": "ac56",
+      "author_id": "001",
+      "post_id": "001",
+      "published_at": "2057-03-14 19:06",
+      "content": "333"
+    }
+  ],
   "sessions": [
     {
       "id": "800b",
@@ -107,6 +129,28 @@
     {
       "id": "360a",
       "hash": "0.06195779747656704472547062323428690433502197265625",
+      "user": {
+        "id": "001",
+        "login": "maxim",
+        "password": "qwerty123",
+        "registeredAt": "2030-09-25",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "8c64",
+      "hash": "0.04387440696042266274901066935854032635688781738281",
+      "user": {
+        "id": "001",
+        "login": "maxim",
+        "password": "qwerty123",
+        "registeredAt": "2030-09-25",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "622f",
+      "hash": "0.57816232601473638297306933964136987924575805664063",
       "user": {
         "id": "001",
         "login": "maxim",

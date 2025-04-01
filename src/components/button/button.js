@@ -15,12 +15,10 @@ export const Button = styled(ButtonContainer)`
 	align-items: center;
 	font-size: 18px;
 	height: 32px;
-	color: #000;
-	text-decoration: none;
 	border: 1px solid #000;
-	background-color: #eee;
+	background-color: #rgb(238, 238, 238);
 
 	&:hover {
-		cursor: pointer;
+		cursor: ${({ disabled }) => (disabled ? 'defauldt' : 'pointer')};
 	}
 `;

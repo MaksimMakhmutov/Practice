@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
 import { Modal } from './components/modal/modal';
 
-const Content = styled.div`
+const Page = styled.div`
 	padding: 120px 0;
 `;
 
@@ -16,11 +16,12 @@ const Content = styled.div`
 // `;
 
 const AppColumn = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 1000px;
-	min-heigth: 100%;
+	min-height: 100%;
 	margin: 0 auto;
 	background-color: #fff;
 `;
@@ -45,7 +46,7 @@ export const Blog = () => {
 	return (
 		<AppColumn>
 			<Header />
-			<Content>
+			<Page>
 				<Routes>
 					<Route path="/" element={<Main />} />
 					<Route path="/login" element={<Authorization />} />
@@ -64,7 +65,7 @@ export const Blog = () => {
 					<Route path="/post" element={<Post />} />
 					<Route path="*" element={<div>Erorr</div>} />
 				</Routes>
-			</Content>
+			</Page>
 			<Footer />
 			<Modal />
 		</AppColumn>

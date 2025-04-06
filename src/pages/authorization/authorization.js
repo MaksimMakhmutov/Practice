@@ -58,7 +58,6 @@ const AuthorizationContainer = ({ className }) => {
 	const onSubmit = async ({ login, password }) => {
 		const { error, res } = await server.authorize(login, password);
 		if (error) {
-			console.log(error);
 			setServerError(`Ошибка запроса: ${error}`);
 			return;
 		}

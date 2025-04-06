@@ -14,7 +14,6 @@ export const addPostComment = async (hash, userId, postId, content) => {
 			res: null,
 		};
 	}
-	console.log('2', 'userId', 'postId', 'content', userId, postId, content);
 	addComment(userId, postId, content);
 
 	const post = await getPost(postId);

@@ -200,6 +200,39 @@
         "registeredAt": "2030-09-25",
         "roleId": 0
       }
+    },
+    {
+      "hash": "0.95295357049633500068352987000253051519393920898438",
+      "user": {
+        "id": "001",
+        "login": "maxim",
+        "password": "qwerty123",
+        "registeredAt": "2030-09-25",
+        "roleId": 0
+      },
+      "id": "SsMHj-L"
+    },
+    {
+      "hash": "0.68791979361911015367070376669289544224739074707031",
+      "user": {
+        "id": "001",
+        "login": "maxim",
+        "password": "qwerty123",
+        "registeredAt": "2030-09-25",
+        "roleId": 0
+      },
+      "id": "zOBL_RK"
+    },
+    {
+      "hash": "0.15868712166602860769160088239004835486412048339844",
+      "user": {
+        "id": "ba30",
+        "login": "Maxim",
+        "password": "qwerty123",
+        "registeredAt": "2058-09-01 14:51",
+        "roleId": 2
+      },
+      "id": "70hIMEp"
     }
   ]
 }

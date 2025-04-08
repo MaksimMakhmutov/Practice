@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Comments, PostContent } from './components';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,7 +39,6 @@ const PostContainer = ({ className }) => {
 	if (isLoading) {
 		return null;
 	}
-
 
 	const SpecificPostPage =
 		isCreating || isEditiong ? (

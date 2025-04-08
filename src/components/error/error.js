@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { H2 } from '../h2/h2';
 
@@ -14,3 +15,6 @@ const Div = styled.div`
 	align-items: center;
 	flex-direction: column;
 `;
+Error.propTypes = {
+	error: PropTypes.oneOfType([PropTypes.string, PropTypes.exact(null)]),
+};

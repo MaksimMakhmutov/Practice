@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import { H2 } from '../h2/h2';
+import { PROP_TYPE } from '../../bff/constants';
 
 export const Error = ({ error }) =>
 	error && (
@@ -16,5 +17,5 @@ const Div = styled.div`
 	flex-direction: column;
 `;
 Error.propTypes = {
-	error: PropTypes.oneOfType([PropTypes.string, PropTypes.exact(null)]),
+	error: PROP_TYPE.ERROR,
 };

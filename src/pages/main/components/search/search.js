@@ -33,3 +33,8 @@ export const Search = styled(SearchContainer)`
 		position: relative;
 	}
 `;
+
+Search.propTypes = {
+	searchPhrase: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+};

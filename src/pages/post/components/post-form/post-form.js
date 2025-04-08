@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon, Input } from '../../../../components';
 import { SpecialPanel } from '../special-panel/special-panel';
@@ -8,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { savePostAsync } from '../../../../actions';
 import { useNavigate } from 'react-router-dom';
 import { useServerRequest } from '../../../../hooks';
+import { PROP_TYPE } from '../../../../bff/constants';
 const PostFormContainer = ({
 	className,
 	post: { id, title, imageUrl, content, publishedAt },
@@ -84,3 +84,6 @@ export const PostForm = styled(PostFormContainer)`
 		border: 1px solid #000;
 	}
 `;
+PostForm.propTypes = {
+	post: PROP_TYPE.POST.isRequired,
+};

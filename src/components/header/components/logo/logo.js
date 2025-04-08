@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const LogoContainer = ({ className }) => (
 	<Link className={className} to="/">
-		<Icon id="fa-code" size="70px" margin="0 10px 0 0" />
+		<Icon iconId="fa-code" size="70px" margin="0 10px 0 0" />
 		<div>
 			<LargeText>Блок</LargeText>
 			<SmallText>веб-разработчик</SmallText>

@@ -17,6 +17,6 @@ export const Icon = styled(IconContainer)`
 	}
 `;
 Icon.propTypes = {
-	id: PropTypes.string.isRequired,
+	iconId: PropTypes.string.isRequired,
 	inactive: PropTypes.bool,
 };

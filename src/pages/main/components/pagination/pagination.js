@@ -48,3 +48,9 @@ export const Pagination = styled(PaginationContainer)`
 		line-height: 26px;
 	}
 `;
+
+Pagination.propTypes = {
+	page: PropTypes.number.isRequired,
+	setPage: PropTypes.func.isRequired,
+	totalPages: PropTypes.number.isRequired,
+};

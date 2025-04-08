@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import { Comments, PostContent } from './components';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

@@ -81,3 +81,8 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		font-size: 18px;
 	}
 `;
+SpecialPanel.propTypes = {
+	id: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	editButton: PropTypes.element.isRequired,
+};
